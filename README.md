@@ -1,6 +1,5 @@
 # Health Metrics Chatbot - Text-to-SQL
 
-```markdown
 ## Project Overview
 
 The **Health Metrics Chatbot** is an intelligent chatbot that allows users to query an extensive health and fitness database using natural language. It converts these natural language queries into SQL, executes them against a MySQL database, and returns the results in a structured table format.
@@ -213,4 +212,3 @@ The following is an overview of the database schema used in this project:
 - **OpenAI** for providing the GPT-4o model.
 - **Hugging Face** for the `moka-ai/m3e-base` embedding model.
 - **React and FastAPI** for powering the frontend and backend.
-```
