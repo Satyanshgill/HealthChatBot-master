@@ -171,4 +171,4 @@ class CreateSyntheticData:
         self.populate_nutrition()
         self.populate_health_metrics()
 
-    print("Database populated with fake data.")
+    print("Database populated with data.")

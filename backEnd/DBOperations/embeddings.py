@@ -149,7 +149,6 @@ class Retrieval(Embeddings):
     # Example query
     def get_top_matches(self, query):
         top_matches = self.retrieve_similar_schema(query)
-        # print(top_matches)
         return top_matches
 
 
@@ -159,16 +158,12 @@ class GenerateSQL:
         return
 
     def generate_sql_query(self, natural_query, relevant_schema):
-        # Create a prompt with the relevant schema (table and column names)
-        print(f"Relevant Schema ::{relevant_schema}")
-        # schema_info = '\n'.join([f"{row[1]}: {row[2]} {row[3]}" for row in relevant_schema])
-        # schema_info = relevant_schema[0]
+        print("Generating SQL Query via GenAI!")
         listOfDict = list()
         for i in range(len(relevant_schema)):
             inputDict = dict()
             inputDict["Table"] = relevant_schema[i][2]
             inputDict["Column"] = relevant_schema[i][3]
-            print(inputDict)
             listOfDict.append(inputDict)
 
         listOfDictNew = [d for d in listOfDict if d["Column"] != None]
@@ -202,6 +197,7 @@ class GenerateSQL:
         return response.choices[0].message.content
 
     def post_process_query(self, generated_query: str):
+        print("Post Processing the query!")
         if generated_query.startswith("```json"):
             generated_query = generated_query[7:-3]
         try:
@@ -212,6 +208,7 @@ class GenerateSQL:
         return query
 
     def execute_sql_query(self, generated_query):
+        print("Executing the SQL Query!")
         cursor.execute(generated_query)
         res = cursor.fetchall()
         column_names = [i[0] for i in cursor.description]
@@ -222,6 +219,7 @@ class GenerateSQL:
         return data
 
     def fetch_table_metadata(self):
+        print("Fetching the table metadata!")
         cursor.execute("""
         SELECT 
             TABLE_NAME, 
@@ -264,6 +262,7 @@ class GenerateSQL:
             print(f"Error: {err}")
 
     def fetch_chat_history(self):
+        print("Fetching the chat history from DB!")
         try:
             cursor.execute("""
                 SELECT user_query, sql_query 

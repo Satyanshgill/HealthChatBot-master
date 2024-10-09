@@ -48,7 +48,6 @@ def demoRun():
 def generateRetrievals(user_query):
     result = rObj.get_top_matches(user_query)
     finalQuery = sqlObj.generate_sql_query(user_query, result)
-    print(f"Final Query Here ::: {finalQuery}")
     postProcessedQuery = sqlObj.post_process_query(finalQuery)
     queryStore = postProcessedQuery
     return postProcessedQuery
@@ -56,7 +55,7 @@ def generateRetrievals(user_query):
 
 @app.post("/fetch-data")
 def fetchDataFromQuery(user_query: UserQuery):
-    print(f"User Query :: {user_query.query}")
+    print("Request with User query Received!")
     storeUserQuery = user_query.query
     sqlQuery = generateRetrievals(user_query.query)
     queryOutput = sqlObj.execute_sql_query(sqlQuery)
