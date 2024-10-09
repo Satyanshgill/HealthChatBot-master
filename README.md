@@ -178,6 +178,14 @@ The following is an overview of the database schema used in this project:
 - `sql_query`: AI Generated SQL Query
 - `created_at`: Timestamp of entry creation
 
+### Embeddings
+
+- `id`: Primary Key
+- `entity_type`: Table or column as entity
+- `table_name`: Table name of the entity
+- `column_name`: Column names of the table
+- `embedding`: Store embeddings as BLOB (Binary Large Object)
+
 ## 6. API Endpoints
 
 ### 1. `/fetch-data` [POST]
