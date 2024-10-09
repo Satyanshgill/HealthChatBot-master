@@ -1,8 +1,6 @@
-Here's the markdown-formatted version of the document:
-
-```markdown
 # Health Metrics Chatbot - Text-to-SQL
 
+```markdown
 ## Project Overview
 
 The **Health Metrics Chatbot** is an intelligent chatbot that allows users to query an extensive health and fitness database using natural language. It converts these natural language queries into SQL, executes them against a MySQL database, and returns the results in a structured table format.
