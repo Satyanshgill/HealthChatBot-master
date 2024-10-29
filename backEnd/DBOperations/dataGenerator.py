@@ -2,16 +2,13 @@ import random
 import mysql.connector
 from faker import Faker
 from decouple import config
+from DBOperations.connector import Connector
 
-db = mysql.connector.connect(
-    host="localhost",
-    user=config("DB_USER"),
-    password=config("DB_PASSWORD"),
-    port=3306,
-    database="health_fitness"
-)
+obj = Connector()
 
+db = obj.createConnection()
 cursor = db.cursor()
+
 fake = Faker()
 
 class CreateSyntheticData:
