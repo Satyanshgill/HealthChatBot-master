@@ -1,7 +1,7 @@
-fastapi[all]
-faker
-decouple-python
-sentence-transformers
-pydantic
-mysql-connector-python
-openai
+fastapi[all]==0.115.0
+faker==30.1.0
+python-decouple==3.8
+sentence-transformers==3.1.1
+pydantic==2.9.2
+mysql-connector-python==9.0.0
+openai==1.51.0
